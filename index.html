@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucy Labs Media | Modern Tech Solutions & Cloud Engineering</title>
+  <meta name="description" content="Lucy Labs Media delivers production web applications, FinOps & AI governance, mobile experiences, and enterprise licensing for B2B and B2C." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111827;
+      --card-border: #1f293d;
+      --card-hover: #1e293b;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      --accent-grad: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Container & Layout */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .brand {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .brand span {
+      background: var(--accent-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .btn-nav {
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--accent) !important;
+      border: 1px solid var(--accent);
+      padding: 8px 16px;
+      border-radius: 6px;
+    }
+
+    .btn-nav:hover {
+      background: var(--accent) !important;
+      color: #090d16 !important;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 96px 0 64px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: var(--accent-glow);
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      background: var(--accent-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0 auto 36px;
+      font-size: 1.125rem;
+      color: var(--text-muted);
+    }
+
+    .cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent-grad);
+      color: #090d16;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.3);
+      transition: transform 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--card-bg);
+      color: var(--text-main);
+      border: 1px solid var(--card-border);
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--card-hover);
+    }
+
+    /* Section Headers */
+    .section-title {
+      text-align: center;
+      margin: 80px 0 48px;
+    }
+
+    .section-title h2 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* Grid Layouts */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 32px;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--accent-glow);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    /* Portfolio Tags & Links */
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 9999px;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .card-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .card-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Founder Bio */
+    .founder-panel {
+      background: linear-gradient(180deg, #111827 0%, #0d121d 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 48px 36px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 36px;
+      align-items: center;
+      margin-bottom: 64px;
+    }
+
+    .founder-info h3 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .founder-title {
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    .founder-info p {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-size: 0.98rem;
+    }
+
+    /* Lead Form */
+    .contact-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      max-width: 640px;
+      margin: 0 auto 96px;
+      padding: 40px;
+    }
+
+    .direct-email {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 28px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 8px;
+      border: 1px dashed var(--card-border);
+    }
+
+    .direct-email a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .direct-email a:hover {
+      text-decoration: underline;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+      background: #090d16;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+    }
+
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 36px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .founder-panel {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <nav>
+      <a href="#" class="brand">
+        <i data-lucide="terminal"></i>
+        Lucy Labs <span>Media</span>
+      </a>
+      <div class="nav-links">
+        <a href="#solutions">Solutions</a>
+        <a href="#work">Work</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#contact" class="btn-nav">Initiate Project</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-tagline">
+        <i data-lucide="zap" style="width: 14px; height: 14px;"></i> Enterprise-Grade Cloud & Digital Execution
+      </div>
+      <h1>Engineered for scale.<br /><span>Tailored for outcome.</span></h1>
+      <p>
+        Lucy Labs Media architects, launches, and governs custom web platforms, mobile products, and FinOps-driven AI solutions across B2B and B2C landscapes.
+      </p>
+      <div class="cta-group">
+        <a href="#contact" class="btn-primary">
+          Explore Collaboration <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
+        </a>
+        <a href="#work" class="btn-secondary">
+          View Live Projects
+        </a>
+      </div>
+    </section>
+
+    <section id="solutions">
+      <div class="section-title">
+        <h2>End-to-End Capabilities</h2>
+        <p>From cloud economics governance to dynamic user-facing applications, built on lean production stacks.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon"><i data-lucide="layers"></i></div>
+          <div>
+            <h3>Cloud & FinOps Solutions</h3>
+            <p>Cloud architecture, cost-optimization blueprints, unit economics monitoring, and proactive FinSecOps governance for AI models and modern workloads.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i data-lucide="cpu"></i></div>
+          <div>
+            <h3>AI Solutions & Governance</h3>
+            <p>Custom model implementation, token consumption telemetry, guardrail automation, and secure enterprise workflow orchestration.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i data-lucide="smartphone"></i></div>
+          <div>
+            <h3>Web & Mobile Applications</h3>
+            <p>Performant Android and cross-platform native applications, responsive single-page platforms, and robust micro-frontend architectures.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i data-lucide="handshake"></i></div>
+          <div>
+            <h3>Licensing & White Labeling</h3>
+            <p>Ready-to-deploy IP, re-brandable SaaS MVPs, and plug-and-play digital engines designed for turnkey agency or enterprise expansion.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i data-lucide="share-2"></i></div>
+          <div>
+            <h3>Social & Digital Distribution</h3>
+            <p>Omnichannel content strategies, headless commerce storefronts, Printful e-commerce automation, and target demographic acquisition engines.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i data-lucide="briefcase"></i></div>
+          <div>
+            <h3>Strategic B2B / B2C Partnerships</h3>
+            <p>Co-development models, institutional tech integration, venture build-outs, and flexible fractional engineering leadership.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="section-title">
+        <h2>Active Deployments</h2>
+        <p>A selection of production platforms engineered, published, and supported across the Lucy Labs Media ecosystem.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div>
+            <span class="tag">Enterprise Cloud / AI Gov</span>
+            <h3>FinSecOps Sentinel</h3>
+            <p>An AI cost governance and automated compliance platform prototype designed to track token consumption and audit cloud security boundaries.</p>
+          </div>
+          <a href="https://lucylabsmedia.github.io/finsecopssentinelmvp-site/" target="_blank" rel="noopener" class="card-link">
+            Launch Deployment <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+          </a>
+        </div>
+
+        <div class="card">
+          <div>
+            <span class="tag">Mobile Engine / B2C</span>
+            <h3>Cooking Stories</h3>
+            <p>A native Jetpack Compose word search recipe application pairing interactive puzzle mechanics with real culinary literature validation.</p>
+          </div>
+          <a href="https://lucylabsmedia.github.io/cooking-stories-site/" target="_blank" rel="noopener" class="card-link">
+            Launch Deployment <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+          </a>
+        </div>
+
+        <div class="card">
+          <div>
+            <span class="tag">E-Commerce / Community</span>
+            <h3>Crohn's Veteran</h3>
+            <p>A mission-driven lifestyle brand and headless e-commerce store with Printful integrations, dynamic contact flows, and high uptime.</p>
+          </div>
+          <a href="https://www.crohnsveteran.com/" target="_blank" rel="noopener" class="card-link">
+            Launch Deployment <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+          </a>
+        </div>
+
+        <div class="card">
+          <div>
+            <span class="tag">Digital Gallery / B2C</span>
+            <h3>Las Vegas Art Lady</h3>
+            <p>Modern portfolio and commercial hub powering independent artist showcase collections with fast static site delivery.</p>
+          </div>
+          <a href="https://www.lasvegasartlady.com" target="_blank" rel="noopener" class="card-link">
+            Launch Deployment <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+          </a>
+        </div>
+
+        <div class="card">
+          <div>
+            <span class="tag">Web Narrative / Showcase</span>
+            <h3>Two Women</h3>
+            <p>Responsive digital narrative and content property engineered with clean typography and streamlined visual storytelling.</p>
+          </div>
+          <a href="https://lucylabsmedia.github.io/twowomen-site/" target="_blank" rel="noopener" class="card-link">
+            Launch Deployment <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="leadership">
+      <div class="founder-panel">
+        <div>
+          <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--accent-glow); border: 2px solid var(--accent); display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+            <i data-lucide="user-check" style="width: 40px; height: 40px; color: var(--accent);"></i>
+          </div>
+          <h3>Jordan B. McConnell</h3>
+          <p class="founder-title">Founder & Lead Solutions Architect</p>
+          <a href="https://www.linkedin.com/in/jordanbmcconnell/" target="_blank" rel="noopener" class="btn-secondary" style="display: inline-flex; padding: 10px 18px; font-size: 0.88rem;">
+            <i data-lucide="linkedin" style="width: 16px; height: 16px;"></i> Connect on LinkedIn
+          </a>
+        </div>
+        <div class="founder-info">
+          <p>
+            Jordan B. McConnell brings deep cross-functional expertise bridging cloud engineering, FinOps financial governance, software development, and product deployment.
+          </p>
+          <p>
+            With an engineering background encompassing enterprise infrastructure, security posture, and mobile apps, Jordan founded Lucy Labs Media to provide organizations with lean, scalable software builds that prioritize unit profitability and architecture integrity.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <h2>Start a Conversation</h2>
+        <p>Discuss a new application build, FinOps audit, or explore licensing & white labeling options.</p>
+      </div>
+
+      <div class="contact-card">
+        <div class="direct-email">
+          <i data-lucide="mail" style="width: 18px; height: 18px; color: var(--accent);"></i>
+          <span>Direct Inquiries: <a href="mailto:lucylabsmedia@gmail.com">lucylabsmedia@gmail.com</a></span>
+        </div>
+
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="email_to" value="lucylabsmedia@gmail.com">
+          <input type="hidden" name="from_name" value="Lucy Labs Media Inquiries">
+          <input type="hidden" name="subject" value="New Client Inquiry | Lucy Labs Media">
+
+          <div class="form-group">
+            <label for="name">Your Name / Organization</label>
+            <input type="text" id="name" name="name" required placeholder="Jane Doe or Acme Corp">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Work Email</label>
+            <input type="email" id="email" name="email" required placeholder="jane@company.com">
+          </div>
+
+          <div class="form-group">
+            <label for="interest">Engagement Focus</label>
+            <select id="interest" name="interest">
+              <option value="Cloud / FinOps Solutions">Cloud & FinOps Solutions</option>
+              <option value="Web or Mobile App Development">Web or Mobile App Development</option>
+              <option value="AI Governance & Integration">AI Governance & Integration</option>
+              <option value="Licensing & White Labeling">Licensing & White Labeling</option>
+              <option value="Strategic Partnership">Strategic Partnership / Co-Development</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Project Scope / Details</label>
+            <textarea id="message" name="message" rows="4" required placeholder="Tell us about your goals, timelines, and technical requirements..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; border: none; cursor: pointer;">
+            Submit Request <i data-lucide="send" style="width: 16px; height: 16px;"></i>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 Lucy Labs Media. All rights reserved. Directed by Jordan B. McConnell. Inquiries: <a href="mailto:lucylabsmedia@gmail.com">lucylabsmedia@gmail.com</a></p>
+    </footer>
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
